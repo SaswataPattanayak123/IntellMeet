@@ -1,0 +1,2284 @@
+/* ==========================================
+   MEETING HISTORY PAGE
+========================================== */
+
+.meeting-history-page{
+  width: 100%;
+  min-height: 100%;
+  color: #f8fafc;
+  border-radius: 10px;
+  padding: 10px 0px 10px 15px;
+}
+
+/* ==========================================
+   TOP BAR
+========================================== */
+
+.meeting-history-page .history-topbar{
+  height: 66px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 0 20px;
+  border-bottom: 1px solid #18283a;
+  background: #07131f;
+}
+
+.meeting-history-page .history-search{
+  width: min(390px, 42%);
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 15px;
+  border: 1px solid #20354b;
+  border-radius: 9px;
+  background: #081522;
+  color: #91a4bb;
+}
+
+.meeting-history-page .history-search:focus-within{
+  border-color: #2584ed;
+  box-shadow: 0 0 0 3px rgba(37, 132, 237, 0.1);
+}
+
+.meeting-history-page .history-search input{
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #e7eef8;
+  font-size: 14px;
+}
+
+.meeting-history-page .history-search input::placeholder{
+  color: #7890a9;
+}
+
+.meeting-history-page .history-user-area{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.meeting-history-page .history-notification{
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #c8d5e5;
+  cursor: pointer;
+}
+
+.meeting-history-page .history-notification > span:last-child{
+  font-size: 24px;
+  transform: rotate(180deg);
+  display: block;
+}
+
+.meeting-history-page .notification-dot{
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef5263;
+  border: 2px solid #07131f;
+}
+
+.meeting-history-page .history-profile{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #edf4fc;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.meeting-history-page .history-avatar{
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #e8edf4,
+    #9aa7b7
+  );
+  color: #1b2633;
+  font-weight: 700;
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.meeting-history-page .meeting-history-content{
+  width: 100%;
+  padding: 0px px;
+  box-sizing: border-box;
+
+}
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.meeting-history-page .history-page-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.meeting-history-page .history-page-header h1{
+  margin: 0 0 7px;
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+  color: #f8fafc;
+}
+
+.meeting-history-page .history-page-header p{
+  margin: 0;
+  color: #a8bbd0;
+  font-size: 16px;
+}
+
+.meeting-history-page .export-history-button{
+  height: 47px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 1px solid #36536e;
+  border-radius: 9px;
+  background: #0b1928;
+  color: #f2f7fc;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.meeting-history-page .export-history-button:hover{
+  border-color: #4d7398;
+  background: #102337;
+}
+
+/* ==========================================
+   FILTERS
+========================================== */
+
+.meeting-history-page .history-filter-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.meeting-history-page .history-status-filters{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.meeting-history-page .history-filter{
+  height: 47px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 17px;
+  border: 1px solid #1c334a;
+  border-radius: 25px;
+  background: #0a1827;
+  color: #d2deeb;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.meeting-history-page .history-filter:hover{
+  background: #102236;
+  border-color: #294a68;
+}
+
+.meeting-history-page .history-filter.active{
+  border-color: #087cf5;
+  background: #087cf5;
+  color: white;
+}
+
+.meeting-history-page .filter-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.meeting-history-page .filter-dot.blue{
+  background: #258bf5;
+}
+
+.meeting-history-page .filter-dot.green{
+  background: #20d89b;
+}
+
+.meeting-history-page .filter-dot.red{
+  background: #f0445b;
+}
+
+.meeting-history-page .filter-dot.gray{
+  background: #9aabbe;
+}
+
+.meeting-history-page .history-selects{
+  display: flex;
+  gap: 12px;
+}
+
+.meeting-history-page .history-select{
+  min-width: 155px;
+  height: 47px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 14px;
+  border: 1px solid #29445e;
+  border-radius: 9px;
+  background: #091827;
+  color: #d7e3ef;
+}
+
+.meeting-history-page .history-select select{
+  width: 100%;
+  appearance: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #e4edf7;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.meeting-history-page .history-select select option{
+  background: #0d1a29;
+  color: white;
+}
+
+.meeting-history-page .history-select > svg:last-child{
+  pointer-events: none;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.meeting-history-page .history-table-wrapper{
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #182e43;
+  border-radius: 15px;
+  background: #071522;
+}
+
+.meeting-history-page .history-table-header{
+  min-height: 43px;
+  display: grid;
+  grid-template-columns:
+    minmax(250px, 1.8fr)
+    minmax(150px, 1fr)
+    minmax(145px, 1fr)
+    minmax(90px, 0.7fr)
+    minmax(110px, 0.8fr)
+    minmax(175px, 1.1fr);
+  align-items: center;
+  padding: 0 14px;
+  border-bottom: 1px solid #1a3044;
+  background: #0c1d2e;
+  color: #d5e1ed;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.meeting-history-page .history-table-header > div{
+  padding: 0 10px;
+}
+
+.meeting-history-page .history-table-body{
+  width: 100%;
+}
+
+.meeting-history-page .history-table-row{
+  min-height: 76px;
+  display: grid;
+  grid-template-columns:
+    minmax(250px, 1.8fr)
+    minmax(150px, 1fr)
+    minmax(145px, 1fr)
+    minmax(90px, 0.7fr)
+    minmax(110px, 0.8fr)
+    minmax(175px, 1.1fr);
+  align-items: center;
+  padding: 0 14px;
+  border-bottom: 1px solid #142b3f;
+  background: #071522;
+  transition: background 0.18s ease;
+}
+
+.meeting-history-page .history-table-row:last-child{
+  border-bottom: 0;
+}
+
+.meeting-history-page .history-table-row:hover{
+  background: #0a1a2a;
+}
+
+.meeting-history-page .history-table-row > div{
+  padding: 8px 10px;
+  min-width: 0;
+}
+
+/* ==========================================
+   MEETING CELL
+========================================== */
+
+.meeting-history-page .history-meeting-cell{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.meeting-history-page .history-meeting-icon{
+  flex: 0 0 auto;
+  width: 49px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #0b4380;
+  color: #dcecff;
+  box-shadow: inset 0 0 0 1px
+    rgba(61, 155, 255, 0.08);
+}
+
+.meeting-history-page .history-meeting-info{
+  min-width: 0;
+}
+
+.meeting-history-page .history-meeting-info h3{
+  margin: 0 0 5px;
+  color: #f4f8fc;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meeting-history-page .history-meeting-info p{
+  margin: 0;
+  color: #91a8bf;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================
+   DATE
+========================================== */
+
+.meeting-history-page .history-date-cell{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.meeting-history-page .history-date-cell span{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d7e2ed;
+  font-size: 13px;
+}
+
+.meeting-history-page .history-date-cell svg{
+  color: #9db2c7;
+  flex: 0 0 auto;
+}
+
+/* ==========================================
+   PARTICIPANTS
+========================================== */
+
+.meeting-history-page .history-participants-cell{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.meeting-history-page .participants-count{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #d7e2ed;
+  font-size: 13px;
+}
+
+.meeting-history-page .participants-count svg{
+  color: #9db2c7;
+}
+
+.meeting-history-page .participant-avatars{
+  display: flex;
+  align-items: center;
+}
+
+.meeting-history-page .participant-avatar{
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -5px;
+
+  border-radius: 50%;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.meeting-history-page .avatar-0{
+  background: #147bed;
+}
+
+.meeting-history-page .avatar-1{
+  background: #6a2ee8;
+}
+
+.meeting-history-page .avatar-2{
+  background: #19a86e;
+}
+
+.meeting-history-page .avatar-3{
+  background: #ed8b16;
+}
+
+/* ==========================================
+   DURATION
+========================================== */
+
+.meeting-history-page .history-duration-cell{
+  color: #d8e3ed;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.meeting-history-page .meeting-status{
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+      background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #60a5fa;
+
+}
+
+.meeting-history-page .meeting-status.completed{
+    color: #00ce45;
+    background: rgb(4 251 38 / 28%);
+  border: 1px solid rgba(17, 181, 130, 0.25);
+}
+
+.meeting-history-page .meeting-status.cancelled{
+  color: #ff6174;
+  background: rgba(190, 35, 65, 0.24);
+  border: 1px solid rgba(241, 66, 90, 0.25);
+}
+
+.meeting-history-page .meeting-status.no-show,
+.meeting-history-page .meeting-status.noshow{
+  color: #c6d2df;
+  background: #172a3d;
+  border: 1px solid #263e55;
+}
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.meeting-history-page .history-actions-cell{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+}
+
+.meeting-history-page .view-meeting-button{
+  height: 43px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #087cf5;
+  color: white;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.meeting-history-page .view-meeting-button:hover{
+  background: #1689ff;
+  box-shadow: 0 6px 18px rgba(8, 124, 245, 0.2);
+}
+
+
+.meeting-history-page .history-delete-button{
+  width: 35px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  background: transparent;
+  color: #94a3b8;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.meeting-history-page .history-delete-button:hover{
+  background: rgba(239, 68, 68, 0.10);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+}
+/* ==========================================
+   STATES
+========================================== */
+
+.meeting-history-page .history-message,
+.meeting-history-page .history-error,
+.meeting-history-page .history-empty{
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #182e43;
+  border-radius: 15px;
+  background: #071522;
+}
+
+.meeting-history-page .history-message{
+  color: #a9bdd1;
+}
+
+.meeting-history-page .history-error{
+  color: #ff7180;
+}
+
+.meeting-history-page .history-empty{
+  color: #94a9bd;
+}
+
+.meeting-history-page .history-empty h2{
+  margin: 5px 0 0;
+  color: #eef5fc;
+}
+
+.meeting-history-page .history-empty p{
+  margin: 0;
+}
+
+
+/* ==========================================
+   DELETE CONFIRMATION MODAL
+========================================== */
+
+.meeting-history-page .delete-modal-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(3, 10, 20, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  padding: 20px;
+}
+
+.meeting-history-page .delete-modal{
+  width: min(420px, 100%);
+  padding: 26px;
+
+  background: #0d1929;
+  border: 1px solid #243952;
+  border-radius: 14px;
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  animation: deleteModalIn 0.18s ease-out;
+}
+
+@keyframes deleteModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.meeting-history-page .delete-modal-icon{
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.11);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+
+  color: #f87171;
+}
+
+.meeting-history-page .delete-modal-content h3{
+  margin: 0 0 8px;
+
+  color: #f8fafc;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.meeting-history-page .delete-modal-content p{
+  margin: 0;
+
+  color: #c0ccda;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.meeting-history-page .delete-modal-content p strong{
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.meeting-history-page .delete-modal-content span{
+  display: block;
+  margin-top: 6px;
+
+  color: #7f91a9;
+  font-size: 12px;
+}
+
+.meeting-history-page .delete-modal-actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.meeting-history-page .delete-cancel-button,
+.meeting-history-page .delete-confirm-button{
+  height: 40px;
+  padding: 0 16px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.meeting-history-page .delete-cancel-button{
+  border: 1px solid #2a4059;
+  background: #101f32;
+  color: #cbd5e1;
+}
+
+.meeting-history-page .delete-cancel-button:hover{
+  background: #172a40;
+  border-color: #3a5572;
+  color: #ffffff;
+}
+
+.meeting-history-page .delete-confirm-button{
+  border: 1px solid #dc2626;
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.meeting-history-page .delete-confirm-button:hover{
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+.meeting-history-page .delete-cancel-button:disabled,
+.meeting-history-page .delete-confirm-button:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+/* =========================================================
+   INTELLMEET - MEETING HISTORY
+   LIGHT THEME
+   ========================================================= */
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+html.light-theme .meeting-history-page{
+  color: #172033;
+  background: #f5f7fb;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-topbar{
+  background: #ffffff;
+  border-bottom-color: #e5e7eb;
+}
+
+html.light-theme .meeting-history-page .history-search{
+  background: #f8fafc;
+  border-color: #dfe4ea;
+  color: #64748b;
+}
+
+html.light-theme .meeting-history-page .history-search:focus-within{
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+html.light-theme .meeting-history-page .history-search input{
+  color: #172033;
+}
+
+html.light-theme .meeting-history-page .history-search input::placeholder{
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-notification{
+  color: #64748b;
+}
+
+html.light-theme .meeting-history-page .history-notification:hover{
+  color: #2563eb;
+}
+
+html.light-theme .meeting-history-page .notification-dot{
+  background: #ef4444;
+  border-color: #ffffff;
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-profile{
+  color: #172033;
+}
+
+html.light-theme .meeting-history-page .history-avatar{
+  background: linear-gradient(
+    135deg,
+    #eff6ff,
+    #dbeafe
+  );
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+html.light-theme .meeting-history-page .meeting-history-content{
+  background: #f5f7fb;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-page-header h1{
+  color: #172033;
+}
+
+html.light-theme .meeting-history-page .history-page-header p{
+  color: #64748b;
+}
+
+
+/* =========================================================
+   EXPORT BUTTON
+   ========================================================= */
+
+html.light-theme .meeting-history-page .export-history-button{
+  background: #ffffff;
+  border-color: #dbe2ea;
+  color: #334155;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+html.light-theme .meeting-history-page .export-history-button:hover{
+  background: #f8fafc;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   STATUS FILTERS
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-filter{
+  background: #ffffff;
+  border-color: #dfe5ec;
+  color: #475569;
+}
+
+html.light-theme .meeting-history-page .history-filter:hover{
+  background: #f8fafc;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+html.light-theme .meeting-history-page .history-filter.active{
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   FILTER DOTS
+   ========================================================= */
+
+html.light-theme .meeting-history-page .filter-dot.blue{
+  background: #2563eb;
+}
+
+html.light-theme .meeting-history-page .filter-dot.green{
+  background: #16a34a;
+}
+
+html.light-theme .meeting-history-page .filter-dot.red{
+  background: #dc2626;
+}
+
+html.light-theme .meeting-history-page .filter-dot.gray{
+  background: #94a3b8;
+}
+
+
+/* =========================================================
+   SELECT FILTERS
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-select{
+  background: #ffffff;
+  border-color: #dfe5ec;
+  color: #475569;
+}
+
+html.light-theme .meeting-history-page .history-select:focus-within{
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+html.light-theme .meeting-history-page .history-select select{
+  color: #334155;
+  background: transparent;
+}
+
+html.light-theme .meeting-history-page .history-select select option{
+  background: #ffffff;
+  color: #172033;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-table-wrapper{
+  border-color: #e1e5eb;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-table-header{
+  background: #f8fafc;
+  border-bottom-color: #e5e7eb;
+  color: #475569;
+}
+
+
+/* =========================================================
+   TABLE BODY ROW
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-table-row{
+  background: #ffffff;
+  border-bottom-color: #edf0f4;
+}
+
+html.light-theme .meeting-history-page .history-table-row:hover{
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   MEETING CELL
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-meeting-icon{
+  background: #eff6ff;
+  color: #2563eb;
+  box-shadow: inset 0 0 0 1px
+    rgba(37, 99, 235, 0.08);
+}
+
+html.light-theme .meeting-history-page .history-meeting-info h3{
+  color: #172033;
+}
+
+html.light-theme .meeting-history-page .history-meeting-info p{
+  color: #64748b;
+}
+
+
+/* =========================================================
+   DATE CELL
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-date-cell span{
+  color: #475569;
+}
+
+html.light-theme .meeting-history-page .history-date-cell svg{
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   PARTICIPANTS
+   ========================================================= */
+html.light-theme .meeting-history-page .participant-avatar{
+  background: #eff6ff;
+  color: #2563eb;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.08);
+}
+html.light-theme .meeting-history-page .participants-count{
+  color: #475569;
+}
+
+html.light-theme .meeting-history-page .participants-count svg{
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   DURATION
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-duration-cell{
+  color: #475569;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.meeting-history-page meeting-status.completed{
+    color: #00ce45;
+    background: rgb(4 251 38 / 28%);
+    border: 1px solid rgba(17, 181, 130, 0.25);
+}
+
+html.light-theme .meeting-history-page .meeting-status.cancelled{
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+html.light-theme .meeting-history-page .meeting-status.no-show,
+html.light-theme .meeting-history-page .meeting-status.noshow{
+  color: #64748b;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+   ========================================================= */
+
+html.light-theme .meeting-history-page .view-meeting-button{
+ background: #eff6ff;
+  color: #2563eb;
+}
+
+html.light-theme .meeting-history-page .view-meeting-button:hover{
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-delete-button{
+  color: #94a3b8;
+}
+
+html.light-theme .meeting-history-page .history-delete-button:hover{
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   LOADING / ERROR / EMPTY STATES
+   ========================================================= */
+
+html.light-theme .meeting-history-page .history-message,
+html.light-theme .meeting-history-page .history-error,
+html.light-theme .meeting-history-page .history-empty{
+  background: #ffffff;
+  border-color: #e1e5eb;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03);
+}
+
+html.light-theme .meeting-history-page .history-message{
+  color: #64748b;
+}
+
+html.light-theme .meeting-history-page .history-error{
+  color: #dc2626;
+}
+
+html.light-theme .meeting-history-page .history-empty{
+  color: #64748b;
+}
+
+html.light-theme .meeting-history-page .history-empty h2{
+  color: #172033;
+}
+
+
+/* =========================================================
+   DELETE CONFIRMATION MODAL
+   ========================================================= */
+
+html.light-theme .meeting-history-page .delete-modal-overlay{
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+
+/* =========================================================
+   DELETE MODAL
+   ========================================================= */
+
+html.light-theme .meeting-history-page .delete-modal{
+  background: #ffffff;
+  border-color: #e1e5eb;
+
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(15, 23, 42, 0.02);
+}
+
+
+/* =========================================================
+   DELETE MODAL ICON
+   ========================================================= */
+
+html.light-theme .meeting-history-page .delete-modal-icon{
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   DELETE MODAL CONTENT
+   ========================================================= */
+
+html.light-theme .meeting-history-page .delete-modal-content h3{
+  color: #172033;
+}
+
+html.light-theme .meeting-history-page .delete-modal-content p{
+  color: #475569;
+}
+
+html.light-theme .meeting-history-page .delete-modal-content p strong{
+  color: #172033;
+}
+
+html.light-theme .meeting-history-page .delete-modal-content span{
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   DELETE MODAL BUTTONS
+   ========================================================= */
+
+html.light-theme .meeting-history-page .delete-cancel-button{
+  background: #ffffff;
+  border-color: #d1d5db;
+  color: #475569;
+}
+
+html.light-theme .meeting-history-page .delete-cancel-button:hover{
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #172033;
+}
+
+html.light-theme .meeting-history-page .delete-confirm-button{
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+}
+
+html.light-theme .meeting-history-page .delete-confirm-button:hover{
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+
+/* =========================================================
+   DISABLED STATES
+   ========================================================= */
+
+html.light-theme .meeting-history-page .delete-cancel-button:disabled,
+html.light-theme .meeting-history-page .delete-confirm-button:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+/* TABLET */
+
+
+/* SMALL TABLET */
+
+
+/* MOBILE */
+
+
+/* SMALL MOBILE */
+
+
+/* EXTRA SMALL MOBILE */
+
+
+/* ==========================================
+   LIGHT THEME - RESPONSIVE
+========================================== */
+
+
+
+
+
+
+
+
+@media (max-width: 1224px) {
+  /* TABLET / LAPTOP SPACING */
+  .meeting-history-page .meeting-history-content {
+    padding: 5px;
+  }
+
+  .meeting-history-page .history-topbar {
+    padding: 0 18px;
+  }
+
+  .meeting-history-page .history-filter-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .meeting-history-page .history-status-filters {
+    width: 100%;
+  }
+
+  .meeting-history-page .history-selects {
+    width: 100%;
+  }
+
+  /* TABLE TO CARD LAYOUT — ONE CARD PER ROW */
+  .meeting-history-page .history-table-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .meeting-history-page .history-table-header {
+    display: none;
+  }
+
+  .meeting-history-page .history-table-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+  }
+
+  /* INDIVIDUAL MEETING CARD */
+  .meeting-history-page .history-table-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "meeting meeting"
+      "date participants"
+      "duration status"
+      "actions actions";
+    align-items: start;
+    gap: 14px 12px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 16px;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: transparent;
+    overflow: hidden;
+  }
+
+  /* MEETING TITLE */
+  .meeting-history-page .history-table-row .history-meeting-cell {
+    grid-area: meeting;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .history-meeting-icon {
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+  }
+
+  .meeting-history-page .history-meeting-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* DATE AND TIME */
+  .meeting-history-page .history-table-row .history-date-cell {
+    grid-area: date;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* PARTICIPANTS */
+  .meeting-history-page .history-table-row .history-participants-cell {
+    grid-area: participants;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+  }
+
+  .meeting-history-page .participants-count {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .meeting-history-page .participant-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  /* DURATION */
+  .meeting-history-page .history-table-row .history-duration-cell {
+    grid-area: duration;
+    display: block;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* STATUS */
+  .meeting-history-page .history-table-row .history-status-cell {
+    position: static;
+    grid-area: status;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .meeting-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* ACTIONS */
+  .meeting-history-page .history-table-row .history-actions-cell {
+    grid-area: actions;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .view-meeting-button {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0 13px;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .history-delete-button {
+    position: static;
+    display: inline-flex;
+    flex: 0 0 35px;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    min-width: 35px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* LIGHT THEME */
+  html.light-theme .meeting-history-page .meeting-history-content {
+    background: #f5f7fb;
+  }
+
+  html.light-theme .meeting-history-page .history-table-wrapper {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  html.light-theme .meeting-history-page .history-table-body {
+    background: transparent;
+  }
+
+  html.light-theme .meeting-history-page .history-table-row {
+    background: #ffffff;
+    border-color: #edf0f4;
+  }
+
+  html.light-theme .meeting-history-page .history-table-row:hover {
+    background: #f8fafc;
+  }
+}
+
+
+@media (max-width: 800px) {
+  /* TOP BAR */
+  .meeting-history-page .history-topbar {
+    height: auto;
+    min-height: 60px;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+
+  .meeting-history-page .history-search {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    height: 42px;
+  }
+
+  .meeting-history-page .history-user-area {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .meeting-history-page .history-profile span,
+  .meeting-history-page .history-profile > svg {
+    display: none;
+  }
+
+  .meeting-history-page .history-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* PAGE CONTENT */
+  .meeting-history-page .meeting-history-content {
+    padding: 0;
+  }
+
+  .meeting-history-page .history-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .meeting-history-page .history-page-header h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .meeting-history-page .history-page-header p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .meeting-history-page .export-history-button {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  /* STATUS FILTERS */
+  .meeting-history-page .history-filter-row {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .meeting-history-page .history-status-filters {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 7px;
+    padding-bottom: 5px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .meeting-history-page .history-status-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .meeting-history-page .history-filter {
+    flex: 0 0 auto;
+    height: 43px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  /* DATE AND SORT FILTERS */
+  .meeting-history-page .history-selects {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .meeting-history-page .history-select {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .history-select select {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* TABLE TO CARD LAYOUT */
+  .meeting-history-page .history-table-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .meeting-history-page .history-table-header {
+    display: none;
+  }
+
+  /* TWO MEETING CARDS PER ROW — TABLET */
+.meeting-history-page .history-table-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+}
+
+/* INDIVIDUAL MEETING CARD */
+.meeting-history-page .history-table-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+        "meeting meeting"
+        "date participants"
+        "duration status"
+        "actions actions";
+    align-items: start;
+    gap: 14px 8px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 12px;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: transparent;
+    overflow: hidden;
+}
+  /* MEETING TITLE */
+  .meeting-history-page .history-table-row .history-meeting-cell {
+    grid-area: meeting;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .history-meeting-icon {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .meeting-history-page .history-meeting-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* DATE AND TIME — LEFT COLUMN */
+  .meeting-history-page .history-table-row .history-date-cell {
+    grid-area: date;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* PARTICIPANTS — RIGHT COLUMN */
+  .meeting-history-page .history-table-row .history-participants-cell {
+    grid-area: participants;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+  }
+
+  .meeting-history-page .participants-count {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .meeting-history-page .participant-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  /* DURATION — LEFT COLUMN */
+  .meeting-history-page .history-table-row .history-duration-cell {
+    grid-area: duration;
+    display: block;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* STATUS — RIGHT COLUMN */
+  .meeting-history-page .history-table-row .history-status-cell {
+    position: static;
+    grid-area: status;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .meeting-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* ACTIONS — BOTTOM ROW */
+  .meeting-history-page .history-table-row .history-actions-cell {
+    grid-area: actions;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .view-meeting-button {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 48px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .history-delete-button {
+    position: static;
+    display: inline-flex;
+    flex: 0 0 35px;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    min-width: 35px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* EMPTY AND ERROR STATES */
+  .meeting-history-page .history-message,
+  .meeting-history-page .history-error,
+  .meeting-history-page .history-empty {
+    min-height: 220px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  /* LIGHT THEME — PRESERVE EXISTING COLORS */
+  html.light-theme .meeting-history-page .history-topbar {
+    background: #ffffff;
+    border-bottom-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-history-page .meeting-history-content {
+    background: #f5f7fb;
+  }
+
+  html.light-theme .meeting-history-page .history-status-filters {
+    scrollbar-color: #cbd5e1 transparent;
+  }
+
+  html.light-theme .meeting-history-page .history-filter {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-history-page .history-select {
+    background: #ffffff;
+    border-color: #e5e7eb;
+    color: #1f2937;
+  }
+
+  html.light-theme .meeting-history-page .history-table-wrapper {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  html.light-theme .meeting-history-page .history-table-body {
+    background: transparent;
+  }
+
+  html.light-theme .meeting-history-page .history-table-row {
+    background: #ffffff;
+    border-color: #e2e8f0;
+  }
+
+  html.light-theme .meeting-history-page .history-table-row:hover {
+    background: #f8fafc;
+  }
+
+  html.light-theme .meeting-history-page .history-message,
+  html.light-theme .meeting-history-page .history-error,
+  html.light-theme .meeting-history-page .history-empty {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+}
+
+
+@media (max-width: 600px) {
+.meeting-history-page{
+  padding: 0 0 20px 0;
+}
+/* STATUS FILTERS — 4 BUTTONS, 25% EACH */
+.meeting-history-page .history-status-filters {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+}
+
+/* EACH FILTER USES 25% OF AVAILABLE WIDTH */
+.meeting-history-page .history-filter {
+  flex: 0 0 25%;
+  width: 25%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 3px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 11px;
+}
+  /* HEADER AND SEARCH */
+
+  .meeting-history-page .history-topbar {
+    padding: 9px 10px;
+    gap: 7px;
+  }
+
+  .meeting-history-page .history-search {
+    height: 40px;
+    min-width: 0;
+    padding: 0 11px;
+    gap: 8px;
+  }
+
+  .meeting-history-page .history-search input {
+    min-width: 0;
+    font-size: 12px;
+  }
+
+  .meeting-history-page .history-notification {
+    width: 32px;
+    height: 32px;
+  }
+
+  .meeting-history-page .history-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .meeting-history-page .history-user-area {
+    gap: 4px;
+  }
+
+  /* PAGE HEADER AND FILTERS */
+
+  /* PAGE HEADER AND FILTERS — MOBILE (600px) */
+
+.meeting-history-page .history-page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.meeting-history-page .export-history-button {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 42px;
+    padding: 0 10px;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.meeting-history-page .history-selects {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.meeting-history-page .history-select {
+    flex: 0 0 calc(50% - 4px);
+    width: calc(50% - 4px);
+    min-width: 0;
+    min-height: 42px;
+    padding: 0 10px;
+    gap: 6px;
+    box-sizing: border-box;
+}
+
+.meeting-history-page .history-select select {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+  /* TABLE WRAPPER AND CARD LIST */
+
+  .meeting-history-page .history-table-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 14px;
+    background: #f5f7fb;
+}
+
+  .meeting-history-page .history-table-header {
+    display: none;
+  }
+
+  .meeting-history-page .history-table-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    background: #0c1524;
+}
+
+  /* MEETING CARD */
+
+  .meeting-history-page .history-table-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "meeting meeting meeting"
+      "date participants duration"
+      "status status status"
+      "actions actions actions";
+    grid-auto-flow: row;
+    align-items: start;
+    gap: 14px 12px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 16px;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: transparent !important;
+    overflow: hidden;
+  }
+
+  /* Remove background from inner card sections */
+
+  .meeting-history-page .history-table-row > div {
+    background-color: transparent !important;
+  }
+
+  /* MEETING TITLE AND DESCRIPTION */
+
+  .meeting-history-page .history-table-row .history-meeting-cell {
+    grid-area: meeting;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .history-meeting-icon {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .meeting-history-page .history-meeting-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* DATE AND TIME — FIRST COLUMN */
+
+  .meeting-history-page .history-table-row .history-date-cell {
+    grid-area: date;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* PARTICIPANTS — SECOND COLUMN */
+
+  .meeting-history-page .history-table-row .history-participants-cell {
+    grid-area: participants;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+  }
+
+  .meeting-history-page .participants-count {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .meeting-history-page .participant-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  /* DURATION — THIRD COLUMN, SAME ROW */
+
+  .meeting-history-page .history-table-row .history-duration-cell {
+    grid-area: duration;
+    display: block;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 2px 0 0;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* STATUS — TOP RIGHT CORNER */
+
+  .meeting-history-page .history-table-row .history-status-cell {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    grid-area: auto;
+    width: auto;
+    min-width: 0;
+    max-width: 45%;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+
+  .meeting-history-page .meeting-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100%;
+    padding: 10px 16px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #60a5fa;
+
+  }
+
+  /* ACTIONS — BOTTOM ROW */
+
+  .meeting-history-page .history-table-row .history-actions-cell {
+    grid-area: actions;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .view-meeting-button {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 48px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .meeting-history-page .history-delete-button {
+    position: static;
+    display: inline-flex;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    min-width: 32px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* PREVENT BOTTOM NAVIGATION FROM COVERING MEETING CARDS */
+
+  .meeting-history-page .meeting-history-content {
+    padding-bottom: 50px;
+    box-sizing: border-box;
+  }
+
+
+
+  /* LIGHT THEME */
+
+  html.light-theme .meeting-history-page .history-search {
+    background: #f8fafc;
+    border-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-history-page .history-filter {
+    background: #ffffff;
+  }
+
+  html.light-theme .meeting-history-page .history-select {
+    background: #ffffff;
+  }
+
+  html.light-theme .meeting-history-page .export-history-button {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+
+  html.light-theme .meeting-history-page .meeting-history-content {
+    background: #f5f7fb;
+  }
+
+  html.light-theme .meeting-history-page .history-table-row {
+    background: transparent !important;
+    border-color: #e2e8f0;
+  }
+
+  /* DARK THEME */
+
+  html:not(.light-theme) .meeting-history-page .history-table-row {
+    background: transparent !important;
+    border-color: #182e43;
+  }
+
+}
